@@ -1,0 +1,18 @@
+﻿@model Monitor
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input class="form-control" type="text" id="name" placeholder="Web Site Name" asp-for="Name" required value="@Model.Name">
+    </div>
+    <div class="form-group">
+        <label asp-for="Url">Url</label>
+        <input class="form-control" type="url" id="name" placeholder="Web Site Address" asp-for="Url" required value="@Model.Url">
+    </div>
+    <div class="form-group">
+        <label asp-for="Interval">Monitoring Interval</label>
+        <input class="form-control" type="number" min="1" max="1440" id="name" placeholder="Monitoring Interval" asp-for="Interval" required value="@Model.Interval">
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

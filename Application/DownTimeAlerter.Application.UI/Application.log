@@ -1,0 +1,135 @@
+Information: 0 - Start installing Hangfire SQL objects...
+Information: 0 - Hangfire SQL objects installed.
+Information: 0 - Starting Hangfire Server using job storage: 'SQL Server: (localdb)\MSSQLLocalDB@DownTimeAlerterDB'
+Information: 0 - Using the following options for SQL Server job storage: Queue poll interval: 00:00:15.
+Information: 0 - Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+Debug: 0 - Execution loop BackgroundServerProcess:a396992f has started in 43,8009 ms
+Information: 0 - Server eacet-nb01:26340:d7346725 successfully announced in 653,5379 ms
+Debug: 0 - Execution loop ServerHeartbeatProcess:10495ec3 has started in 14,4172 ms
+Information: 0 - Server eacet-nb01:26340:d7346725 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+Debug: 0 - Execution loop ServerWatchdog:fa41e6e9 has started in 197,4328 ms
+Debug: 0 - Execution loop ServerJobCancellationWatcher:cb1eaca5 has started in 81,6612 ms
+Debug: 0 - Execution loop ExpirationManager:b5853bcf has started in 57,6514 ms
+Debug: 0 - Execution loop CountersAggregator:4623c420 has started in 32,8669 ms
+Debug: 0 - Removing outdated records from the 'AggregatedCounter' table...
+Debug: 0 - Aggregating records in 'Counter' table...
+Debug: 0 - Execution loop Worker:6c234187 has started in 45,775 ms
+Debug: 0 - Execution loop Worker:14afab47 has started in 52,3287 ms
+Debug: 0 - Execution loop Worker:6eccae04 has started in 61,7043 ms
+Debug: 0 - Removing outdated records from the 'Job' table...
+Debug: 0 - Execution loop Worker:13b5726e has started in 82,7678 ms
+Debug: 0 - Execution loop Worker:8442c041 has started in 95,1492 ms
+Debug: 0 - Removing outdated records from the 'List' table...
+Debug: 0 - Execution loop Worker:12994af6 has started in 108,1521 ms
+Debug: 0 - Removing outdated records from the 'Set' table...
+Debug: 0 - Execution loop Worker:5340f4d8 has started in 163,2605 ms
+Debug: 0 - Execution loop Worker:4f476446 has started in 121,7266 ms
+Debug: 0 - Execution loop Worker:718b2107 has started in 126,0773 ms
+Information: 0 - Server eacet-nb01:26340:d7346725 all the dispatchers started
+Debug: 0 - Execution loop Worker:ae3f2018 has started in 132,996 ms
+Debug: 0 - Removing outdated records from the 'Hash' table...
+Debug: 0 - Execution loop Worker:6130a5f1 has started in 141,1934 ms
+Debug: 0 - Execution loop Worker:9c574a52 has started in 148,6404 ms
+Debug: 0 - Execution loop Worker:84b0b005 has started in 154,1139 ms
+Debug: 0 - Execution loop Worker:0b7b0400 has started in 163,2605 ms
+Debug: 0 - Execution loop Worker:f6904b65 has started in 173,4613 ms
+Debug: 0 - Execution loop Worker:8960a1dd has started in 183,47 ms
+Debug: 0 - Execution loop Worker:11207e0b has started in 238,3557 ms
+Debug: 0 - Execution loop Worker:64f9dfb5 has started in 197,4381 ms
+Debug: 0 - Execution loop Worker:b7f318d7 has started in 215,3757 ms
+Debug: 0 - Execution loop Worker:2e8e66ec has started in 238,2556 ms
+Debug: 0 - Execution loop DelayedJobScheduler:72c35ec5 has started in 85,3334 ms
+Debug: 0 - Execution loop RecurringJobScheduler:c1c610e3 has started in 76,2879 ms
+Debug: 0 - 1 recurring job(s) enqueued.
+Information: 1 - Request starting HTTP/1.1 DEBUG http://localhost:2631/  0
+Information: 2 - Request finished in 114.7732ms 200 
+Information: 10403 - Entity Framework Core 2.2.6-servicing-10079 initialized 'DownTimeAlerterDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Information: 10403 - Entity Framework Core 2.2.6-servicing-10079 initialized 'DownTimeAlerterDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Information: 10403 - Entity Framework Core 2.2.6-servicing-10079 initialized 'DownTimeAlerterDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Information: 10403 - Entity Framework Core 2.2.6-servicing-10079 initialized 'DownTimeAlerterDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Information: 10403 - Entity Framework Core 2.2.6-servicing-10079 initialized 'DownTimeAlerterDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Debug: 0 - Server eacet-nb01:26340:d7346725 heartbeat successfully sent
+Warning: 0 - Failed to process the job '619': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:36.
+Information: 20101 - Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [m].[Id], [m].[CreatedDate], [m].[Interval], [m].[LastCheckDate], [m].[LastStatus], [m].[Name], [m].[UpdatedDate], [m].[Url], [m].[UserId]
+FROM [Monitors] AS [m]
+Information: 20101 - Executed DbCommand (10ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (DbType = Guid), @p4='?' (DbType = Int16), @p5='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [MonitorRequests] ([Id], [CreatedDate], [IsSuccess], [MonitorId], [ResponseCode], [ResponseMessage])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+Information: 20101 - Executed DbCommand (2ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[CreatedDate], [e].[Interval], [e].[LastCheckDate], [e].[LastStatus], [e].[Name], [e].[UpdatedDate], [e].[Url], [e].[UserId]
+FROM [Monitors] AS [e]
+WHERE [e].[Id] = @__get_Item_0
+Information: 20101 - Executed DbCommand (3ms) [Parameters=[@p8='?' (DbType = Guid), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (Size = 1) (DbType = Byte), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Monitors] SET [CreatedDate] = @p0, [Interval] = @p1, [LastCheckDate] = @p2, [LastStatus] = @p3, [Name] = @p4, [UpdatedDate] = @p5, [Url] = @p6, [UserId] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Information: 20101 - Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (DbType = Guid), @p4='?' (DbType = Int16), @p5='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [MonitorRequests] ([Id], [CreatedDate], [IsSuccess], [MonitorId], [ResponseCode], [ResponseMessage])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+Information: 20101 - Executed DbCommand (1ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[CreatedDate], [e].[Interval], [e].[LastCheckDate], [e].[LastStatus], [e].[Name], [e].[UpdatedDate], [e].[Url], [e].[UserId]
+FROM [Monitors] AS [e]
+WHERE [e].[Id] = @__get_Item_0
+Information: 20101 - Executed DbCommand (0ms) [Parameters=[@p8='?' (DbType = Guid), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (Size = 1) (DbType = Byte), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Monitors] SET [CreatedDate] = @p0, [Interval] = @p1, [LastCheckDate] = @p2, [LastStatus] = @p3, [Name] = @p4, [UpdatedDate] = @p5, [Url] = @p6, [UserId] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Information: 1 - Request starting HTTP/1.1 GET http://localhost:44303/  
+Information: 0 - Executing endpoint 'DownTimeAlerter.Application.UI.Controllers.MonitoringController.Index (DownTimeAlerter.Application.UI)'
+Information: 1 - Route matched with {action = "Index", controller = "Monitoring", page = "", area = ""}. Executing action DownTimeAlerter.Application.UI.Controllers.MonitoringController.Index (DownTimeAlerter.Application.UI)
+Information: 1 - Authorization was successful.
+Information: 10403 - Entity Framework Core 2.2.6-servicing-10079 initialized 'DownTimeAlerterDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Debug: 0 - 1 recurring job(s) enqueued.
+Information: 10403 - Entity Framework Core 2.2.6-servicing-10079 initialized 'DownTimeAlerterDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Information: 10403 - Entity Framework Core 2.2.6-servicing-10079 initialized 'DownTimeAlerterDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Information: 10403 - Entity Framework Core 2.2.6-servicing-10079 initialized 'DownTimeAlerterDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Information: 10403 - Entity Framework Core 2.2.6-servicing-10079 initialized 'DownTimeAlerterDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Information: 10403 - Entity Framework Core 2.2.6-servicing-10079 initialized 'DownTimeAlerterDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Information: 1 - Executing action method DownTimeAlerter.Application.UI.Controllers.MonitoringController.Index (DownTimeAlerter.Application.UI) - Validation state: Valid
+Information: 2 - Executed action method DownTimeAlerter.Application.UI.Controllers.MonitoringController.Index (DownTimeAlerter.Application.UI), returned result Microsoft.AspNetCore.Mvc.ViewResult in 467.9258ms.
+Warning: 0 - Failed to process the job '626': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:39.
+Warning: 0 - Failed to process the job '623': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:40.
+Debug: 0 - State change attempt 1 of 10 failed due to an error, see inner exception for details
+Warning: 0 - Failed to process the job '622': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:20.
+Information: 1 - Executing ViewResult, running view Index.
+Information: 20101 - Executed DbCommand (3ms) [Parameters=[@__UserId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[CreatedDate], [x].[Interval], [x].[LastCheckDate], [x].[LastStatus], [x].[Name], [x].[UpdatedDate], [x].[Url], [x].[UserId]
+FROM [Monitors] AS [x]
+WHERE [x].[UserId] = @__UserId_0
+Information: 20101 - Executed DbCommand (0ms) [Parameters=[@__UserId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[Id], [x].[CreatedDate], [x].[Interval], [x].[LastCheckDate], [x].[LastStatus], [x].[Name], [x].[UpdatedDate], [x].[Url], [x].[UserId]
+FROM [Monitors] AS [x]
+WHERE [x].[UserId] = @__UserId_0
+Information: 4 - Executed ViewResult - view Index executed in 4091.6713ms.
+Information: 2 - Executed action DownTimeAlerter.Application.UI.Controllers.MonitoringController.Index (DownTimeAlerter.Application.UI) in 8987.2157ms
+Information: 1 - Executed endpoint 'DownTimeAlerter.Application.UI.Controllers.MonitoringController.Index (DownTimeAlerter.Application.UI)'
+Information: 2 - Request finished in 9318.7599ms 200 text/html; charset=utf-8
+Information: 1 - Request starting HTTP/1.1 GET http://localhost:44303/css/site.css  
+Information: 6 - The file /css/site.css was not modified
+Information: 2 - Request finished in 40.1793ms 304 text/css
+Information: 20101 - Executed DbCommand (20ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (DbType = Guid), @p4='?' (DbType = Int16), @p5='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [MonitorRequests] ([Id], [CreatedDate], [IsSuccess], [MonitorId], [ResponseCode], [ResponseMessage])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+Information: 20101 - Executed DbCommand (2ms) [Parameters=[@__get_Item_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [e].[Id], [e].[CreatedDate], [e].[Interval], [e].[LastCheckDate], [e].[LastStatus], [e].[Name], [e].[UpdatedDate], [e].[Url], [e].[UserId]
+FROM [Monitors] AS [e]
+WHERE [e].[Id] = @__get_Item_0
+Information: 20101 - Executed DbCommand (8ms) [Parameters=[@p8='?' (DbType = Guid), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (Size = 1) (DbType = Byte), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Monitors] SET [CreatedDate] = @p0, [Interval] = @p1, [LastCheckDate] = @p2, [LastStatus] = @p3, [Name] = @p4, [UpdatedDate] = @p5, [Url] = @p6, [UserId] = @p7
+WHERE [Id] = @p8;
+SELECT @@ROWCOUNT;
+Debug: 0 - Server eacet-nb01:26340:d7346725 heartbeat successfully sent
+Warning: 0 - Failed to process the job '630': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:16.
+Warning: 0 - Failed to process the job '627': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:21.
+Warning: 0 - Failed to process the job '629': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:41.

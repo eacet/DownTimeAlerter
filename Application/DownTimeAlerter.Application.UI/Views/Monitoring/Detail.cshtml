@@ -1,0 +1,72 @@
+﻿@model MonitoringDetailViewModel
+
+<script src="~/lib/chart/Chart.min.js"></script>
+
+
+<script>
+    var config = {
+        type: 'pie',
+        data: {
+            datasets: [{
+                data: [
+                    @Model.SuccessCount,
+                    @Model.FailCount
+                ],
+                backgroundColor: [
+                    'green',
+                    'red',
+                ],
+                label: 'Monitoring Results'
+            }],
+            labels: [
+                'Success',
+                'Fail'
+            ]
+        },
+        options: {
+            responsive: true
+        }
+    };
+
+    window.onload = function () {
+        var ctx = document.getElementById('chart-area').getContext('2d');
+        window.myPie = new Chart(ctx, config);
+    };
+</script>
+
+<div class="row">
+
+    <div class="table-responsive col-md-6">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th scope="col">Name</th>
+                    <td>@Model.Name</td>
+                </tr>
+                <tr>
+                    <th>Url</th>
+                    <td>@Model.Url</td>
+                </tr>
+                <tr>
+                    <th>Monitoring Interval</th>
+                    <td>@Model.Interval minute(s)</td>
+                </tr>
+                <tr>
+                    <th>Created Date</th>
+                    <td>@Model.CreatedDate</td>
+                </tr>
+                <tr>
+                    <th>Last Check Date</th>
+                    <td>@(Model.LastCheckDate == DateTime.MinValue ? "" : Model.LastCheckDate.ToString())</td>
+                </tr>
+                <tr>
+                    <th>Last Check Status</th>
+                    <td>@Model.LastStatus</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <canvas id="chart-area"></canvas>
+    </div>
+</div>

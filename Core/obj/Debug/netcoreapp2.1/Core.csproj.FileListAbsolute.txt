@@ -1,0 +1,8 @@
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Core\bin\Debug\netcoreapp2.1\Core.deps.json
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Core\bin\Debug\netcoreapp2.1\Core.dll
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Core\bin\Debug\netcoreapp2.1\Core.pdb
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Core\obj\Debug\netcoreapp2.1\Core.csproj.CoreCompileInputs.cache
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Core\obj\Debug\netcoreapp2.1\Core.AssemblyInfoInputs.cache
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Core\obj\Debug\netcoreapp2.1\Core.AssemblyInfo.cs
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Core\obj\Debug\netcoreapp2.1\Core.dll
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Core\obj\Debug\netcoreapp2.1\Core.pdb

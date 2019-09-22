@@ -1,0 +1,11 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@if (!SignInManager.IsSignedIn(User)) {
+    <h2>Welcome Down Time Alerter Monitoring App</h2>
+    <h1>You can register and monitor your application.</h1>
+}
+else {
+    <h2>Lets <a asp-action="Create" asp-controller="Monitoring">Create</a> New Monitoring</h2>
+}

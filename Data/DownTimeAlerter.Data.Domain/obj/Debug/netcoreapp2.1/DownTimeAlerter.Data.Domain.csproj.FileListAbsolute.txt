@@ -1,0 +1,16 @@
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Data\DownTimeAlerter.Data.Domain\bin\Debug\netcoreapp2.1\DownTimeAlerter.Data.Domain.deps.json
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Data\DownTimeAlerter.Data.Domain\bin\Debug\netcoreapp2.1\DownTimeAlerter.Data.Domain.runtimeconfig.json
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Data\DownTimeAlerter.Data.Domain\bin\Debug\netcoreapp2.1\DownTimeAlerter.Data.Domain.runtimeconfig.dev.json
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Data\DownTimeAlerter.Data.Domain\bin\Debug\netcoreapp2.1\DownTimeAlerter.Data.Domain.dll
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Data\DownTimeAlerter.Data.Domain\bin\Debug\netcoreapp2.1\DownTimeAlerter.Data.Domain.pdb
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Data\DownTimeAlerter.Data.Domain\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Data\DownTimeAlerter.Data.Domain\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Data\DownTimeAlerter.Data.Domain\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Data\DownTimeAlerter.Data.Domain\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Identity.Stores.xml
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Data\DownTimeAlerter.Data.Domain\obj\Debug\netcoreapp2.1\DownTimeAlerter.Data.Domain.csproj.CoreCompileInputs.cache
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Data\DownTimeAlerter.Data.Domain\obj\Debug\netcoreapp2.1\DownTimeAlerter.Data.Domain.AssemblyInfoInputs.cache
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Data\DownTimeAlerter.Data.Domain\obj\Debug\netcoreapp2.1\DownTimeAlerter.Data.Domain.AssemblyInfo.cs
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Data\DownTimeAlerter.Data.Domain\obj\Debug\netcoreapp2.1\DownTimeAlerter.Data.Domain.csproj.CopyComplete
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Data\DownTimeAlerter.Data.Domain\obj\Debug\netcoreapp2.1\DownTimeAlerter.Data.Domain.dll
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Data\DownTimeAlerter.Data.Domain\obj\Debug\netcoreapp2.1\DownTimeAlerter.Data.Domain.pdb
+C:\Users\erhan.acet\source\repos\DownTimeAlerter\Data\DownTimeAlerter.Data.Domain\obj\Debug\netcoreapp2.1\DownTimeAlerter.Data.Domain.csprojAssemblyReference.cache

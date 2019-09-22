@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Monitor>
+
+
+
+@if (Model.Any()) {
+    <a class="btn btn-primary pull-right" asp-controller="Monitoring" asp-action="Create" role="button">Create</a>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Url</th>
+                    <th scope="col">Last Check Date</th>
+                    <th scope="col">Last Status</th>
+                    <th scope="col">#</th>
+                    <th scope="col">#</th>
+                    <th scope="col">#</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var monitor in Model) {
+
+                    <tr>
+                        <td>@monitor.Name</td>
+                        <td>@monitor.Url</td>
+                        <td>@(monitor.LastCheckDate == DateTime.MinValue ? "" : monitor.LastCheckDate.ToString())</td>
+                        <td>@monitor.LastStatus</td>
+                        <td><a asp-controller="Monitoring" asp-action="Detail" asp-route-id="@monitor.Id">Detail</a></td>
+                        <td><a asp-controller="Monitoring" asp-action="Update" asp-route-id="@monitor.Id">Edit</a></td>
+                        @*<td><a asp-controller="Monitoring" asp-action="Delete" asp-route-id="@monitor.Id">Delete</a></td>*@
+                        <td><a href="@Url.Action("Delete", "Monitoring", new { id=@monitor.Id})" onclick="return confirm('Are you sure you want to Delete?')">Delete</a></td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+}
+else {
+    <h2>You don't have any monitoring. Lets <a asp-controller="Monitoring" asp-action="Create" role="button">Create!</a></h2>
+}
