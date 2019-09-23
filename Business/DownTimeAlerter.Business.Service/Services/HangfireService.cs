@@ -93,20 +93,14 @@ namespace DownTimeAlerter.Business.Service.Services {
 
                         NotificationService.Notify(notificationModel);
                     }
-
                 }
 
                 //Monitor Request Save
                 MonitoringRequestService.Add(monitorRequest);
                 MonitoringRequestService.Save();
 
-
                 //Monitor Update
                 UpdateMonitoringLastStatusAndLastCheckDate(monitor, monitorRequest.IsSuccess);
-
-
-
-
 
             }
             catch (Exception ex) {

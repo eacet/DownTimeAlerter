@@ -1,5 +1,6 @@
 ﻿using DownTimeAlerter.Business.Service.IServices;
 using DownTimeAlerter.Data.Domain.Models;
+using System;
 using System.Net;
 using System.Net.Mail;
 
@@ -14,20 +15,25 @@ namespace DownTimeAlerter.Business.Service.Services {
         /// </summary>
         /// <param name="notificationModel"></param>
         public void Notify(NotificationModel notificationModel) {
-            SmtpClient client = new SmtpClient {
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                EnableSsl = true,
-                Host = "smtp.gmail.com",
-                Port = 587
-            };
+            try {
+                SmtpClient client = new SmtpClient {
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    EnableSsl = true,
+                    Host = "smtp.gmail.com",
+                    Port = 587
+                };
 
-            var credentials = new NetworkCredential("erhanacetproj@gmail.com", "Erhan!123");
-            client.UseDefaultCredentials = false;
-            client.Credentials = credentials;
+                var credentials = new NetworkCredential("erhanacetproj@gmail.com", "Erhan!123");
+                client.UseDefaultCredentials = false;
+                client.Credentials = credentials;
 
-            var mailMessage = CreateMailMessage(notificationModel);
+                var mailMessage = CreateMailMessage(notificationModel);
 
-            client.Send(mailMessage);
+                client.Send(mailMessage);
+            }
+            catch (Exception ex) {
+
+            }
         }
 
         /// <summary>
