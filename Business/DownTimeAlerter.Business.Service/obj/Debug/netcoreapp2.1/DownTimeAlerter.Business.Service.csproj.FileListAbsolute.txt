@@ -16,5 +16,3 @@ C:\Users\erhan.acet\source\repos\DownTimeAlerter\Business\DownTimeAlerter.Busine
 C:\Users\erhan.acet\source\repos\DownTimeAlerter\Business\DownTimeAlerter.Business.Service\obj\Debug\netcoreapp2.1\DownTimeAlerter.Business.Service.csproj.CopyComplete
 C:\Users\erhan.acet\source\repos\DownTimeAlerter\Business\DownTimeAlerter.Business.Service\obj\Debug\netcoreapp2.1\DownTimeAlerter.Business.Service.dll
 C:\Users\erhan.acet\source\repos\DownTimeAlerter\Business\DownTimeAlerter.Business.Service\obj\Debug\netcoreapp2.1\DownTimeAlerter.Business.Service.pdb
-C:\Users\erhan.acet\source\repos\DownTimeAlerter\Business\DownTimeAlerter.Business.Service\bin\Debug\netcoreapp2.1\DownTimeAlerter.Data.CommonModels.dll
-C:\Users\erhan.acet\source\repos\DownTimeAlerter\Business\DownTimeAlerter.Business.Service\bin\Debug\netcoreapp2.1\DownTimeAlerter.Data.CommonModels.pdb

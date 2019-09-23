@@ -1,21 +1,45 @@
-﻿@model IEnumerable<Monitor>
+﻿@model List<Monitor>
 
+<script>
+    function deleteMonitoring(id) {
+        if (confirm("Are you sure?")) {
+            $.ajax({
+                url: "/Monitoring/Delete",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({ input: 'erhan' }),
 
+                success: function (data) {
+                    console.log(data);
+                },
+
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+    }
+</script>
 
 @if (Model.Any()) {
     <a class="btn btn-primary pull-right" asp-controller="Monitoring" asp-action="Create" role="button">Create</a>
 
     <div class="table-responsive">
         <table class="table">
+            <colgroup>
+                <col style="width: 25%">
+                <col style="width: 25%">
+                <col style="width: 25%">
+                <col style="width: 12%">
+                <col style="width: 12%">
+            </colgroup>
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Url</th>
                     <th scope="col">Last Check Date</th>
                     <th scope="col">Last Status</th>
-                    <th scope="col">#</th>
-                    <th scope="col">#</th>
-                    <th scope="col">#</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -26,10 +50,21 @@
                         <td>@monitor.Url</td>
                         <td>@(monitor.LastCheckDate == DateTime.MinValue ? "" : monitor.LastCheckDate.ToString())</td>
                         <td>@monitor.LastStatus</td>
-                        <td><a asp-controller="Monitoring" asp-action="Detail" asp-route-id="@monitor.Id">Detail</a></td>
-                        <td><a asp-controller="Monitoring" asp-action="Update" asp-route-id="@monitor.Id">Edit</a></td>
-                        @*<td><a asp-controller="Monitoring" asp-action="Delete" asp-route-id="@monitor.Id">Delete</a></td>*@
-                        <td><a href="@Url.Action("Delete", "Monitoring", new { id=@monitor.Id})" onclick="return confirm('Are you sure you want to Delete?')">Delete</a></td>
+                        <td>
+
+                            <a asp-controller="Monitoring" asp-action="Detail" asp-route-id="@monitor.Id" class="action-button detail">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            </a>
+                            <a asp-controller="Monitoring" asp-action="Update" asp-route-id="@monitor.Id" class="action-button edit">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </a>
+                            <a asp-controller="Monitoring" asp-action="Delete" asp-route-id="@monitor.Id" class="action-button edit">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+                            @*<button type="submit" class="action-button delete" onclick="deleteMonitoring('@monitor.Id')">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </button>*@
+                        </td>
                     </tr>
                 }
 

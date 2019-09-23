@@ -1,10 +1,10 @@
 ﻿using DownTimeAlerter.Business.Service.IServices;
-using DownTimeAlerter.Data.CommonModels.ViewModels;
 using DownTimeAlerter.Data.Domain.Entities;
+using DownTimeAlerter.Data.Domain.Models;
 using DownTimeAlerter.Data.EF.IRepositories;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Linq;
+using System.Collections.Generic;
 
 namespace DownTimeAlerter.Business.Service.Services {
 
@@ -12,17 +12,48 @@ namespace DownTimeAlerter.Business.Service.Services {
     /// Monitoring Service for Access Monitoring entities
     /// </summary>
     public class MonitoringService : BaseService<Monitor>, IMonitoringService {
-
+        public IMonitoringRepository Repository { get; }
         public IMonitoringRequestService MonitoringRequestService { get; }
 
         public MonitoringService(IMonitoringRepository repository, IMonitoringRequestService monitoringRequestService, ILogger<Monitor> logger)
             : base(repository, logger) {
+            Repository = repository;
             MonitoringRequestService = monitoringRequestService;
         }
 
+        /// <summary>
+        /// Get All Monitorings with User Information
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<Monitor> GetAllMonitoringsWithUserInfo() {
+            var results = Repository.GetAllMonitoringsWithUserInfo();
+            return results;
+        }
 
         /// <summary>
-        /// Edit Monitor 
+        /// Create new Monitor Entity
+        /// </summary>
+        /// <param name="model"></param>
+        public void Add(MonitoringViewModel model) {
+            try {
+                var entity = new Monitor {
+                    Name = model.Name,
+                    Url = model.Url,
+                    Interval = model.Interval,
+                    UserId = model.UserId
+                };
+
+                Repository.Add(entity);
+                Repository.Save();
+            }
+            catch (Exception ex) {
+                Logger.LogError($"Error occured at MonitoringService.Edit(MonitoringViewModel model), {ex}");
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Edit Monitor Entity
         /// </summary>
         /// <param name="entity"></param>
         public void Edit(MonitoringViewModel model) {
@@ -35,12 +66,11 @@ namespace DownTimeAlerter.Business.Service.Services {
                 Repository.Edit(entity);
                 Repository.Save();
             }
-            catch (Exception) {
-
+            catch (Exception ex) {
+                Logger.LogError($"Error occured at MonitoringService.Edit(MonitoringViewModel model), {ex}");
                 throw;
             }
         }
-
 
         /// <summary>
         /// Get Monitoring Detail By Monitor Id and User Id
@@ -68,8 +98,11 @@ namespace DownTimeAlerter.Business.Service.Services {
                 return result;
             }
             catch (Exception ex) {
+                Logger.LogError($"Error occured at MonitoringService.GetMonitoringDetail(Guid id, Guid userId), {ex}");
                 throw;
             }
         }
+
+
     }
 }

@@ -1,12 +1,7 @@
-﻿using AutoMapper;
-using DownTimeAlerter.Application.UI.Data;
+﻿using DownTimeAlerter.Application.UI.Configuration;
 using DownTimeAlerter.Business.Service.IServices;
-using DownTimeAlerter.Business.Service.Services;
 using DownTimeAlerter.Data.Domain.Context;
 using DownTimeAlerter.Data.Domain.Entities;
-using DownTimeAlerter.Data.EF.IRepositories;
-using DownTimeAlerter.Data.EF.Repositories;
-using DownTimeAlerter.Infrastructure.Common.Helper;
 using Hangfire;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -17,7 +12,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 
 namespace DownTimeAlerter.Application.UI {
     public class Startup {
@@ -35,54 +29,31 @@ namespace DownTimeAlerter.Application.UI {
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            //services.AddDbContext<ApplicationDbContext>(options =>
-            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-
-            //services.AddDbContext<ApplicationDbContext>(options => {
-            //    options.UseInMemoryDatabase();
-            //});
 
             //Sql Database
             services.AddDbContext<DownTimeAlerterDbContext>(config => {
                 config.UseSqlServer(Configuration.GetConnectionString("Default"));
             });
 
+            //Identity
             services.AddDefaultIdentity<User>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<DownTimeAlerterDbContext>();
 
-
-
-            //In Memory Database
-            //services.AddDbContext<DownTimeAlerterDbContext>(config => {
-            //    config.UseInMemoryDatabase();
-            //});
-
+            //hangfire Setup
             services.AddHangfire(options => {
                 options.UseSqlServerStorage(Configuration.GetConnectionString("Default"));
             });
 
-            services.AddAutoMapper(typeof(Startup));
 
+            services.RegisterDependencies(); //Service and Repository Injection
 
-
-            services.AddScoped(typeof(DbContext), typeof(DownTimeAlerterDbContext));
-            services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
-            services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
-            services.AddScoped<INotificationService, MailService>();
-
-            services.RegisterServiceAndRepositoryTypes(); //Service and Repository Injection
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) {
-
-
-
-            loggerFactory.AddProvider(new FileLoggerProvider($"{env.ContentRootPath}\\{Configuration.GetSection("Logging:LogPath").Value}"));
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
 
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
@@ -99,9 +70,11 @@ namespace DownTimeAlerter.Application.UI {
 
             app.UseAuthentication();
 
+            //Hangfire Setup
             app.UseHangfireDashboard();
             app.UseHangfireServer();
 
+            //Hangfire Job Create
             RecurringJob.AddOrUpdate<IHangfireService>(
                options => options.CreateRecurringJobsForMonitorings(), Cron.Minutely);
 

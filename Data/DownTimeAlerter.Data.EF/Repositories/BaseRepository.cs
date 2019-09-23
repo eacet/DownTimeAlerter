@@ -62,6 +62,11 @@ namespace DownTimeAlerter.Data.EF.Repositories {
             return Dbset.Find(id);
         }
 
+        /// <summary>
+        /// Get Count by Filter
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
         public int CountBy(Expression<Func<T, bool>> predicate) {
             return Dbset.Count(predicate);
         }

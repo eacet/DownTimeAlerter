@@ -52,11 +52,9 @@ C:\Users\erhan.acet\source\repos\DownTimeAlerter\Application\DownTimeAlerter.App
 C:\Users\erhan.acet\source\repos\DownTimeAlerter\Application\DownTimeAlerter.Application.UI\bin\Debug\netcoreapp2.2\DownTimeAlerter.Business.Service.dll
 C:\Users\erhan.acet\source\repos\DownTimeAlerter\Application\DownTimeAlerter.Application.UI\bin\Debug\netcoreapp2.2\DownTimeAlerter.Data.Domain.dll
 C:\Users\erhan.acet\source\repos\DownTimeAlerter\Application\DownTimeAlerter.Application.UI\bin\Debug\netcoreapp2.2\DownTimeAlerter.Data.EF.dll
-C:\Users\erhan.acet\source\repos\DownTimeAlerter\Application\DownTimeAlerter.Application.UI\bin\Debug\netcoreapp2.2\DownTimeAlerter.Infrastructure.Common.dll
 C:\Users\erhan.acet\source\repos\DownTimeAlerter\Application\DownTimeAlerter.Application.UI\bin\Debug\netcoreapp2.2\DownTimeAlerter.Business.Service.pdb
 C:\Users\erhan.acet\source\repos\DownTimeAlerter\Application\DownTimeAlerter.Application.UI\bin\Debug\netcoreapp2.2\DownTimeAlerter.Data.Domain.pdb
 C:\Users\erhan.acet\source\repos\DownTimeAlerter\Application\DownTimeAlerter.Application.UI\bin\Debug\netcoreapp2.2\DownTimeAlerter.Data.EF.pdb
-C:\Users\erhan.acet\source\repos\DownTimeAlerter\Application\DownTimeAlerter.Application.UI\bin\Debug\netcoreapp2.2\DownTimeAlerter.Infrastructure.Common.pdb
 C:\Users\erhan.acet\source\repos\DownTimeAlerter\Application\DownTimeAlerter.Application.UI\obj\Debug\netcoreapp2.2\DownTimeAlerter.Application.UI.csprojAssemblyReference.cache
 C:\Users\erhan.acet\source\repos\DownTimeAlerter\Application\DownTimeAlerter.Application.UI\obj\Debug\netcoreapp2.2\DownTimeAlerter.Application.UI.csproj.CoreCompileInputs.cache
 C:\Users\erhan.acet\source\repos\DownTimeAlerter\Application\DownTimeAlerter.Application.UI\obj\Debug\netcoreapp2.2\DownTimeAlerter.Application.UI.RazorAssemblyInfo.cache
@@ -86,5 +84,3 @@ C:\Users\erhan.acet\source\repos\DownTimeAlerter\Application\DownTimeAlerter.App
 C:\Users\erhan.acet\source\repos\DownTimeAlerter\Application\DownTimeAlerter.Application.UI\obj\Debug\netcoreapp2.2\DownTimeAlerter.Application.UI.csproj.CopyComplete
 C:\Users\erhan.acet\source\repos\DownTimeAlerter\Application\DownTimeAlerter.Application.UI\obj\Debug\netcoreapp2.2\DownTimeAlerter.Application.UI.dll
 C:\Users\erhan.acet\source\repos\DownTimeAlerter\Application\DownTimeAlerter.Application.UI\obj\Debug\netcoreapp2.2\DownTimeAlerter.Application.UI.pdb
-C:\Users\erhan.acet\source\repos\DownTimeAlerter\Application\DownTimeAlerter.Application.UI\bin\Debug\netcoreapp2.2\DownTimeAlerter.Data.CommonModels.dll
-C:\Users\erhan.acet\source\repos\DownTimeAlerter\Application\DownTimeAlerter.Application.UI\bin\Debug\netcoreapp2.2\DownTimeAlerter.Data.CommonModels.pdb

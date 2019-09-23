@@ -1,27 +1,29 @@
-﻿using AutoMapper;
-using DownTimeAlerter.Business.Service.IServices;
-using DownTimeAlerter.Data.CommonModels.ViewModels;
+﻿using DownTimeAlerter.Business.Service.IServices;
 using DownTimeAlerter.Data.Domain.Entities;
+using DownTimeAlerter.Data.Domain.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Linq;
 
 namespace DownTimeAlerter.Application.UI.Controllers {
 
+    /// <summary>
+    /// Monitoring Controller Authorize
+    /// </summary>
     [Authorize]
     public class MonitoringController : Controller {
         public IMonitoringService Service { get; }
-        public IMapper Mapper { get; }
         public ILogger<MonitoringController> Logger { get; }
 
-        public MonitoringController(IMonitoringService service, IMapper mapper, ILogger<MonitoringController> logger) {
+        public MonitoringController(IMonitoringService service, ILogger<MonitoringController> logger) {
             Service = service;
-            Mapper = mapper;
             Logger = logger;
         }
 
+        #region IdentityUser
         private UserManager<User> _userManager;
         public UserManager<User> UserManager => _userManager ?? (UserManager<User>)HttpContext?.RequestServices.GetService(typeof(UserManager<User>));
 
@@ -32,19 +34,29 @@ namespace DownTimeAlerter.Application.UI.Controllers {
                 return Guid.Parse(userId);
             }
         }
+        #endregion
 
-
+        /// <summary>
+        /// List All Monitorings Get Action
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Index() {
             try {
-                var results = Service.FindBy(x => x.UserId == UserId);
+                var results = Service.FindBy(x => x.UserId == UserId).ToList();
                 return View(results);
             }
             catch (Exception ex) {
+                Logger.LogError($"Error occured at MonitoringController.Index(), {ex}");
                 throw;
             }
         }
 
+        /// <summary>
+        /// Monitoring Detail Get Action
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Detail(Guid id) {
             if (id == Guid.Empty)
@@ -55,34 +67,51 @@ namespace DownTimeAlerter.Application.UI.Controllers {
                 return View(result);
             }
             catch (Exception ex) {
+                Logger.LogError($"Error occured at MonitoringController.Detail(Guid id) with parameter: {id}, {ex}");
                 throw;
             }
         }
 
+        /// <summary>
+        /// Create Monitoring Get Action
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Create() {
             return View();
         }
 
+
+        /// <summary>
+        /// Create Monitoring Post Action
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
-        public IActionResult Create(Monitor model) {
+        public IActionResult Create(MonitoringViewModel model) {
             try {
                 if (!ModelState.IsValid)
                     return View(model);
 
                 model.UserId = UserId;
                 Service.Add(model);
-                if (Service.Save()) {
-                    return RedirectToAction("Index");
-                }
+                Service.Save();
+                return RedirectToAction("Index");
+
             }
             catch (Exception ex) {
+                Logger.LogError($"Error occured at MonitoringController.Detail(Monitor model),  {ex}");
                 throw;
             }
 
             return View();
         }
 
+        /// <summary>
+        /// Update Monitoring Get Action
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Update(Guid id) {
             try {
@@ -90,13 +119,25 @@ namespace DownTimeAlerter.Application.UI.Controllers {
                     return View();
 
                 var result = Service.GetBy(x => x.Id == id && x.UserId == UserId);
-                return View(result);
+                var model = new MonitoringViewModel {
+                    Id = result.Id,
+                    Name = result.Name,
+                    Url = result.Url,
+                    Interval = result.Interval
+                };
+                return View(model);
             }
             catch (Exception ex) {
+                Logger.LogError($"Error occured at MonitoringController.Update(Guid id) with parameter: {id}, {ex}");
                 throw;
             }
         }
 
+        /// <summary>
+        /// Update Monitoring Post Action
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Update(MonitoringViewModel model) {
             try {
@@ -105,23 +146,33 @@ namespace DownTimeAlerter.Application.UI.Controllers {
 
                 var dbModel = Service.GetById(model.Id);
                 if (dbModel.UserId != UserId)
-                    return View();
-                
+                    return View(model);
+
                 Service.Edit(model);
-                if (Service.Save()) {
-                    return RedirectToAction("Index");
-                }
+                Service.Save();
+                return RedirectToAction("Index");
+
             }
             catch (Exception ex) {
+                Logger.LogError($"Error occured at MonitoringController.Update(MonitoringViewModel model) , {ex}");
                 throw;
             }
-
-            return View();
+            return View(model);
         }
 
+
+        /// <summary>
+        /// Delete Monitoring Post Action
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Delete(Guid id) {
             try {
+                //Guid guid = Guid.Parse(input);
+                if (id == Guid.Empty)
+                    RedirectToAction("Index");
+
                 var entity = Service.GetBy(x => x.Id == id && x.UserId == UserId);
 
                 if (entity != null)
@@ -130,6 +181,7 @@ namespace DownTimeAlerter.Application.UI.Controllers {
                 return RedirectToAction("Index");
             }
             catch (Exception ex) {
+                Logger.LogError($"Error occured at MonitoringController.Delete(Guid id) with parameter: {id}, {ex}");
                 throw;
             }
         }

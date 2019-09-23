@@ -6,9 +6,6 @@ namespace DownTimeAlerter.Data.Domain.Enums {
         [Description("None")]
         None = 0,
 
-        [Description("Requesting")]
-        Requesting = 1,
-
         [Description("Request return 2xx code")]
         Success = 2,
 

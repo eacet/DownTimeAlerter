@@ -32,11 +32,13 @@ namespace DownTimeAlerter.Data.Domain.Migrations
 
                     b.Property<byte>("LastStatus");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.Property<DateTime>("UpdatedDate");
 
-                    b.Property<string>("Url");
+                    b.Property<string>("Url")
+                        .IsRequired();
 
                     b.Property<Guid>("UserId");
 
@@ -63,8 +65,6 @@ namespace DownTimeAlerter.Data.Domain.Migrations
                     b.Property<string>("ResponseMessage");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("MonitorId");
 
                     b.ToTable("MonitorRequests");
                 });
@@ -232,14 +232,6 @@ namespace DownTimeAlerter.Data.Domain.Migrations
                     b.HasOne("DownTimeAlerter.Data.Domain.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("DownTimeAlerter.Data.Domain.Entities.MonitorRequest", b =>
-                {
-                    b.HasOne("DownTimeAlerter.Data.Domain.Entities.Monitor")
-                        .WithMany("MonitorRequests")
-                        .HasForeignKey("MonitorId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

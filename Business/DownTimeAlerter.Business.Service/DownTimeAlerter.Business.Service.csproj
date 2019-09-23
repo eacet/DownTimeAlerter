@@ -9,7 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Data\DownTimeAlerter.Data.CommonModels\DownTimeAlerter.Data.CommonModels.csproj" />
     <ProjectReference Include="..\..\Data\DownTimeAlerter.Data.EF\DownTimeAlerter.Data.EF.csproj" />
   </ItemGroup>
 

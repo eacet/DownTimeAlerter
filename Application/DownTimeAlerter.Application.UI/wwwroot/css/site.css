@@ -134,7 +134,7 @@ body {
 
 @media (min-width: 768px) {
     [role="main"] {
-        padding-top: 48px; /* Space for fixed navbar */
+        padding-top: 125px; /* Space for fixed navbar */
     }
 }
 
@@ -190,7 +190,6 @@ table.table {
     width: 100%;
     margin: 0 auto;
     position: relative;
-    border: 1px solid #36304a;
 }
 
 table thead tr {
@@ -250,6 +249,7 @@ label {
     font-size: 17px;
 }
 
+
     .sidebar .nav-link * {
         display: inline-block;
         vertical-align: middle;
@@ -263,4 +263,60 @@ a.nav-link svg {
 .pull-right {
     float: right;
     margin-bottom: 20px;
+}
+
+.action-button {
+    display: inline-block;
+    background: none;
+    border: none;
+    padding: 5px;
+    color: #000;
+    font-size: 14px;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .action-button.detail {
+        color: #117a8b;
+    }
+
+    .action-button.edit {
+        color: #886025;
+    }
+
+    .action-button.delete {
+        color: #bd2130;
+    }
+
+    .action-button i {
+        font-size: 16px;
+    }
+
+    .action-button:hover {
+        background: #255788;
+        color: #fff;
+    }
+
+button.nav-link.btn.btn-link.text-light {
+    padding: 0;
+    padding-bottom: 10px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fefefe;
+    background: #255788;
+}
+
+.nav-pills .nav-link {
+    color: #255788;
+}
+
+table tr {
+    border: 2px solid #1c4166;
+}
+
+.page-title {
+    margin-bottom: 20px;
+    color: #1c4166;
 }

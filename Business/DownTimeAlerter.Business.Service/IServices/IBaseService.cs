@@ -35,6 +35,11 @@ namespace DownTimeAlerter.Business.Service.IServices {
         /// <returns></returns>
         T GetById(Guid id);
 
+        /// <summary>
+        /// Get Count By Filter
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
         int CountBy(Expression<Func<T, bool>> predicate);
 
         /// <summary>

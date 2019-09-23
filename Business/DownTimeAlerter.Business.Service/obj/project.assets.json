@@ -1215,19 +1215,6 @@
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
       },
-      "DownTimeAlerter.Data.CommonModels/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v2.1",
-        "dependencies": {
-          "DownTimeAlerter.Data.Domain": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DownTimeAlerter.Data.CommonModels.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DownTimeAlerter.Data.CommonModels.dll": {}
-        }
-      },
       "DownTimeAlerter.Data.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
@@ -4263,11 +4250,6 @@
         "system.threading.tasks.nuspec"
       ]
     },
-    "DownTimeAlerter.Data.CommonModels/1.0.0": {
-      "type": "project",
-      "path": "../../Data/DownTimeAlerter.Data.CommonModels/DownTimeAlerter.Data.CommonModels.csproj",
-      "msbuildProject": "../../Data/DownTimeAlerter.Data.CommonModels/DownTimeAlerter.Data.CommonModels.csproj"
-    },
     "DownTimeAlerter.Data.Domain/1.0.0": {
       "type": "project",
       "path": "../../Data/DownTimeAlerter.Data.Domain/DownTimeAlerter.Data.Domain.csproj",
@@ -4281,7 +4263,6 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "DownTimeAlerter.Data.CommonModels >= 1.0.0",
       "DownTimeAlerter.Data.EF >= 1.0.0",
       "HangFire >= 1.7.6",
       "Microsoft.NETCore.App >= 2.1.0"
@@ -4317,9 +4298,6 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\erhan.acet\\source\\repos\\DownTimeAlerter\\Data\\DownTimeAlerter.Data.CommonModels\\DownTimeAlerter.Data.CommonModels.csproj": {
-              "projectPath": "C:\\Users\\erhan.acet\\source\\repos\\DownTimeAlerter\\Data\\DownTimeAlerter.Data.CommonModels\\DownTimeAlerter.Data.CommonModels.csproj"
-            },
             "C:\\Users\\erhan.acet\\source\\repos\\DownTimeAlerter\\Data\\DownTimeAlerter.Data.EF\\DownTimeAlerter.Data.EF.csproj": {
               "projectPath": "C:\\Users\\erhan.acet\\source\\repos\\DownTimeAlerter\\Data\\DownTimeAlerter.Data.EF\\DownTimeAlerter.Data.EF.csproj"
             }

@@ -24,17 +24,17 @@ using DownTimeAlerter.Application.UI.Models;
 #line default
 #line hidden
 #line 3 "C:\Users\erhan.acet\source\repos\DownTimeAlerter\Application\DownTimeAlerter.Application.UI\Views\_ViewImports.cshtml"
-using DownTimeAlerter.Data.CommonModels.ViewModels;
-
-#line default
-#line hidden
-#line 4 "C:\Users\erhan.acet\source\repos\DownTimeAlerter\Application\DownTimeAlerter.Application.UI\Views\_ViewImports.cshtml"
 using DownTimeAlerter.Data.Domain.Entities;
 
 #line default
 #line hidden
+#line 4 "C:\Users\erhan.acet\source\repos\DownTimeAlerter\Application\DownTimeAlerter.Application.UI\Views\_ViewImports.cshtml"
+using DownTimeAlerter.Data.Domain.Models;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d6a5625cc8fb4476f348b0fe9041c550465d8bf9", @"/Views/Shared/Error.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b9b397823f34c20806ec7abb1270618f465b1288", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"142ac56a0ec37a632d41a1b84dc55e749fdf3906", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Error : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ErrorViewModel>
     {
         #pragma warning disable 1998

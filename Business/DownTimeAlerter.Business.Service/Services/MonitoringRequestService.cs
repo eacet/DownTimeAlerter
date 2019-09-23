@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 namespace DownTimeAlerter.Business.Service.Services {
 
     /// <summary>
-    /// 
+    /// Monitoring Request Service for Access Monitoring Requests
     /// </summary>
     public class MonitoringRequestService : BaseService<MonitorRequest>, IMonitoringRequestService {
 
