@@ -79,21 +79,22 @@ namespace DownTimeAlerter.Business.Service.Services {
                     monitorRequest.ResponseCode = 500;
                     monitorRequest.ResponseMessage = "ServerError";
                     monitorRequest.IsSuccess = false;
-
-                    //Notification
-                    if (!monitorRequest.IsSuccess) {
-                        var notificationModel = new NotificationModel {
-                            DisplayName = "Down Time Alerter",
-                            Subject = $"The Site Named {monitor.Name} Is Unreachable",
-                            Message = $"The site named {monitor.Name} ({monitor.Url}) is unreachable. Response Code: {monitorRequest.ResponseCode}, Response Message: {monitorRequest.ResponseMessage}",
-                            NotificationUserModel = new NotificationUserModel {
-                                Mail = monitor.User.Email
-                            }
-                        };
-
-                        NotificationService.Notify(notificationModel);
-                    }
                 }
+
+                //Notification
+                if (!monitorRequest.IsSuccess) {
+                    var notificationModel = new NotificationModel {
+                        DisplayName = "Down Time Alerter",
+                        Subject = $"The Site Named {monitor.Name} Is Unreachable",
+                        Message = $"The site named {monitor.Name} ({monitor.Url}) is unreachable. Response Code: {monitorRequest.ResponseCode}, Response Message: {monitorRequest.ResponseMessage}",
+                        NotificationUserModel = new NotificationUserModel {
+                            Mail = monitor.User.Email
+                        }
+                    };
+
+                    NotificationService.Notify(notificationModel);
+                }
+
 
                 //Monitor Request Save
                 MonitoringRequestService.Add(monitorRequest);
