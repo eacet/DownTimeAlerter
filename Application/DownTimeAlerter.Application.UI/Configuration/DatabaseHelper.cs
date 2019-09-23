@@ -2,13 +2,17 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DownTimeAlerter.Application.UI.Configuration {
+    /// <summary>
+    /// Database Helper
+    /// </summary>
     public static class DatabaseHelper {
+
+        /// <summary>
+        /// Migrate Db Context
+        /// </summary>
+        /// <param name="app"></param>
         public static void MigrateDb(this IApplicationBuilder app) {
             using (var serviceScope = app.ApplicationServices.CreateScope()) {
                 var context = serviceScope.ServiceProvider.GetService<DownTimeAlerterDbContext>();

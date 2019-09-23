@@ -55,8 +55,7 @@ namespace DownTimeAlerter.Application.UI {
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
 
-
-            app.MigrateDb();
+            app.MigrateDb(); //Migrate Db Context
 
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
@@ -87,8 +86,6 @@ namespace DownTimeAlerter.Application.UI {
                     name: "default",
                     template: "{controller=Monitoring}/{action=Index}/{id?}");
             });
-
-
         }
     }
 }

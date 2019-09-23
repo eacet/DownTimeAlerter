@@ -1,25 +1,24 @@
 ﻿@model List<Monitor>
+@*<script>
+        function deleteMonitoring(guid) {
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    url: "/Monitoring/Delete",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify({ id: guid }),
 
-<script>
-    function deleteMonitoring(id) {
-        if (confirm("Are you sure?")) {
-            $.ajax({
-                url: "/Monitoring/Delete",
-                type: "POST",
-                contentType: "application/json",
-                data: JSON.stringify({ input: 'erhan' }),
+                    success: function (data) {
+                        console.log(data);
+                    },
 
-                success: function (data) {
-                    console.log(data);
-                },
-
-                error: function (error) {
-                    console.log(error);
-                }
-            });
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            }
         }
-    }
-</script>
+    </script>*@
 
 @if (Model.Any()) {
     <a class="btn btn-primary pull-right" asp-controller="Monitoring" asp-action="Create" role="button">Create</a>
@@ -51,7 +50,6 @@
                         <td>@(monitor.LastCheckDate == DateTime.MinValue ? "" : monitor.LastCheckDate.ToString())</td>
                         <td>@monitor.LastStatus</td>
                         <td>
-
                             <a asp-controller="Monitoring" asp-action="Detail" asp-route-id="@monitor.Id" class="action-button detail">
                                 <i class="fa fa-eye" aria-hidden="true"></i>
                             </a>
@@ -61,9 +59,6 @@
                             <a asp-controller="Monitoring" asp-action="Delete" asp-route-id="@monitor.Id" class="action-button edit">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                             </a>
-                            @*<button type="submit" class="action-button delete" onclick="deleteMonitoring('@monitor.Id')">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                </button>*@
                         </td>
                     </tr>
                 }

@@ -88,6 +88,7 @@ namespace DownTimeAlerter.Application.UI.Controllers {
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(MonitoringViewModel model) {
             try {
                 if (!ModelState.IsValid)
@@ -103,8 +104,6 @@ namespace DownTimeAlerter.Application.UI.Controllers {
                 Logger.LogError($"Error occured at MonitoringController.Detail(Monitor model),  {ex}");
                 throw;
             }
-
-            return View();
         }
 
         /// <summary>
@@ -139,6 +138,7 @@ namespace DownTimeAlerter.Application.UI.Controllers {
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Update(MonitoringViewModel model) {
             try {
                 if (!ModelState.IsValid)
@@ -157,7 +157,6 @@ namespace DownTimeAlerter.Application.UI.Controllers {
                 Logger.LogError($"Error occured at MonitoringController.Update(MonitoringViewModel model) , {ex}");
                 throw;
             }
-            return View(model);
         }
 
 
@@ -169,7 +168,6 @@ namespace DownTimeAlerter.Application.UI.Controllers {
         [HttpGet]
         public IActionResult Delete(Guid id) {
             try {
-                //Guid guid = Guid.Parse(input);
                 if (id == Guid.Empty)
                     RedirectToAction("Index");
 

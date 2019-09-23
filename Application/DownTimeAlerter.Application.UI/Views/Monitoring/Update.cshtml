@@ -1,6 +1,7 @@
 ﻿@model MonitoringViewModel
 
 <form method="post">
+    @Html.AntiForgeryToken()
     <div asp-validation-summary="All"></div>
     <div class="form-group">
         <label asp-for="Name">Name</label>
