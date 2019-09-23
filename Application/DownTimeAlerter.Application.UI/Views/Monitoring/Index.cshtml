@@ -50,13 +50,13 @@
                         <td>@(monitor.LastCheckDate == DateTime.MinValue ? "" : monitor.LastCheckDate.ToString())</td>
                         <td>@monitor.LastStatus</td>
                         <td>
-                            <a asp-controller="Monitoring" asp-action="Detail" asp-route-id="@monitor.Id" class="action-button detail">
+                            <a asp-controller="Monitoring" asp-action="Detail" asp-route-id="@monitor.Id" class="action-button detail" title="Detail">
                                 <i class="fa fa-eye" aria-hidden="true"></i>
                             </a>
-                            <a asp-controller="Monitoring" asp-action="Update" asp-route-id="@monitor.Id" class="action-button edit">
+                            <a asp-controller="Monitoring" asp-action="Update" asp-route-id="@monitor.Id" class="action-button edit" title="Update">
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                             </a>
-                            <a asp-controller="Monitoring" asp-action="Delete" asp-route-id="@monitor.Id" class="action-button edit">
+                            <a asp-controller="Monitoring" asp-action="Delete" asp-route-id="@monitor.Id" class="action-button edit" title="Delete">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                             </a>
                         </td>
