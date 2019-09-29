@@ -23,7 +23,7 @@ namespace DownTimeAlerter.Business.Service.Services {
                     Port = 587
                 };
 
-                var credentials = new NetworkCredential("erhanacetproj@gmail.com", "Erhan!123");
+                var credentials = new NetworkCredential("{username}@gmail.com", "{Password}");
                 client.UseDefaultCredentials = false;
                 client.Credentials = credentials;
 
